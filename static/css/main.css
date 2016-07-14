@@ -1,0 +1,30 @@
+body{
+	font-family: sans-serif;
+}
+
+.post-title{
+	
+	font-size: 18px;
+	font-weight: 300px;
+}
+.post-container{
+	width:49%;
+	display:inline-block;
+	padding: 10px;
+	box-sizing: border-box;
+}
+
+.page-list{
+	
+	text-align: center;
+}
+
+.page-list li{
+	padding:3px;
+	border-radius: 3px;
+	box-shadow: 0 0 3px #777;
+	font-weight: 300;
+	color:#444;
+	display:inline-block;
+	list-style: none;
+}
