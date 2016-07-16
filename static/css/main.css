@@ -28,3 +28,9 @@ body{
 	display:inline-block;
 	list-style: none;
 }
+
+.load-indicator{
+	
+	text-align: center;
+	display: none;
+}

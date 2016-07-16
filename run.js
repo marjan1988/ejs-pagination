@@ -26,27 +26,50 @@ app.get('/article/:id', (req, res)=>{
 	});
 });
 
+app.get('/api/posts', (req, res)=>{
+	
+	var pageNum = req.query.page-1;
+	var postCount = req.query.postCount ? req.query.postCount: 5;
+	
+	
+	
+	request('http://jsonplaceholder.typicode.com/posts', function (error, response, body) {
+  		if (!error && response.statusCode == 200) {
+    		console.log(body);
+			var jsonData = JSON.parse(body);
+			var pageLength = Math.floor(jsonData.length / postCount);
+			var page = jsonData.splice(pageNum*postCount, postCount);
+			
+			res.send(page);
+		}
+			
+});
+	
+});
 app.get('/', (req, res)=>{
 	
 	var request = require('request');
 	
 	var pageNum = req.query.page-1;
-	var postCount = 5;
+	var postCount = req.query.postCount ? req.query.postCount: 5;
+	
+	
+	
 	request('http://jsonplaceholder.typicode.com/posts', function (error, response, body) {
   		if (!error && response.statusCode == 200) {
     		console.log(body);
 			var jsonData = JSON.parse(body);
-			var pageLength = Math.floor(jsonData.length/5);
-			var page = jsonData.splice(pageNum*postCount,5);
+			var pageLength = Math.floor(jsonData.length / postCount);
+			var page = jsonData.splice(pageNum*postCount, postCount);
 			
 			res.render('landing', {posts	:page,
 								   numPages	:pageLength,
-								   pageNum	:pageNum
+								   pageNum	:pageNum,
+								   postCount:postCount 
 								  
 								  });
   }	
 });
-	
-	
-	
 });
+	
+	
