@@ -21,7 +21,7 @@ app.get('/article/:id', (req, res)=>{
 		
 		var jsonData = JSON.parse(body);
 		
-		res.render('article',{ article:jsonData });
+		res.render('article',{ article:jsonData, pageName:'article' });
 		
 	});
 });
@@ -46,6 +46,7 @@ app.get('/api/posts', (req, res)=>{
 });
 	
 });
+
 app.get('/', (req, res)=>{
 	
 	var request = require('request');
@@ -65,11 +66,27 @@ app.get('/', (req, res)=>{
 			res.render('landing', {posts	:page,
 								   numPages	:pageLength,
 								   pageNum	:pageNum,
-								   postCount:postCount 
+								   postCount:postCount,
+								   pageName :'articles'
 								  
 								  });
   }	
 });
 });
 	
+app.get('/about', (req, res)=>{
 	
+	res.render('about',{
+						pageName:'about'
+		
+						});
+});
+
+app.get('/portfolio', (req, res)=>{
+	
+	res.render('portfolio',{
+							pageName:'portfolio'
+		
+							});
+	
+});

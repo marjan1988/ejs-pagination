@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<link href="/static/css/main.css" rel="stylesheet">
-	<script src="/libs/jquery/dist/jquery.min.js"></script>
-	<script>
-		var pageNum = <%- pageNum+1 %>
-	</script>
-	
-</head>
+<% include header.ejs %>
+
 <body>
+	<script>
+	var pageNum = <%- pageNum+1 %>
+	</script>	
 	<% include navigation.ejs %>
 	<h1>Posts</h1>
 	<p>Page: <%- pageNum+1 %></p>
@@ -49,6 +46,7 @@
 		<% } %>	
 		<a href="?page=<%= pageNum+2 %>&postCount=<%- postCount %>">Next</a>
 	</ul>
+	<% include footer.ejs %>
 	<script src="/static/js/main.js"></script>
 </body>	
 

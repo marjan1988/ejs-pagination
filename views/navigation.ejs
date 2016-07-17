@@ -1,5 +1,6 @@
+
 <div class="nav-container">
-	<div class="nav-button">Article</div>
-	<div class="nav-button">About</div>
-	<div class="nav-button">Portfolio</div>
+	<a href="/" class="nav-button <%- pageName === 'articles'?'selected':'' %>">Articles</a>
+	<a href="/about" class="nav-button <%- pageName === 'about'?'selected':'' %>">About</a>
+	<a href="/portfolio" class="nav-button <%- pageName === 'portfolio'?'selected':'' %>">Portfolio</a>
 </div>
